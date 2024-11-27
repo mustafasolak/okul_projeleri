@@ -6,6 +6,37 @@
     <title>Form Örnekleri</title>
 </head>
 <body>
-    
+    <h3>input type örnekleri</h3>
+    <form method="get">
+        <label for="txtAdSoyad">Adınız Soyadınız : </label>
+        <input type="text" name="txtAdSoyad" id="txtAdSoyad" autofocus/>
+        <hr />
+
+        <label for="txtEposta">E-posta Adresiniz</label>
+        <input type="email" name="txtEposta" id="txtEposta" />
+        <hr />
+
+        <label for="">Cinsiyetiniz</label>
+        <input type="radio" name="radioCinsiyet" value="Erkek"  />
+        Erkek
+        <input type="radio" name="radioCinsiyet" value="Kadın" checked />
+        Kadın
+        <hr/>
+
+        <label for="">Kullandığınız programlama dilleri</label>
+        <br/>
+        <input type="checkbox" name="chkDilPython" value="python"  />Python
+        <br>
+        <input type="checkbox" name="chkDilCsharp" value="csharp" checked />C#
+        <br>
+        <input type="checkbox" name="chkDilJava" value="java" />Java
+        <hr />
+
+        <input type="submit" value="Kayıt Ol" />
+        <input type="reset" value="Temizle">
+
+
+
+    </form>
 </body>
 </html>
