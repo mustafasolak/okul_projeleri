@@ -1,0 +1,22 @@
+Sayfa Başlığı : Çocuk Hakları Haftası -20 Kasım
+
+Logo resmi yerleşimi
+
+Menü oluşturma
+
+Ana Sayfa(index.html) ve Galeri(galeri.html) sayfaları arasında köprü verme
+
+Banner resmi yerleşimi
+
+ana sayfa ve galerideki başlıklar
+
+ana sayfadaki içerik metinleri
+
+ana sayfada ses ekleme
+
+galeri sayfasında tablo ekleme
+
+galeri sayfasında resimler ekleme
+
+galeri sayfasında video ekleme
+

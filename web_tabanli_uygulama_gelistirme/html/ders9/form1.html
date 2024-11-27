@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Elemanları 1</title>
+</head>
+<body>
+    <!-- Form'lar kullanıcıların veri girişi yapmasını sağlayan elemanlardır. -->
+     <!--
+        method = get => Formdaki veriler gönderilirken adres satırı üzerinden gönderilir.
+        Veriler açık bir şekilde görünür.
+
+        method = post => Formdaki veriler gönderilirken gizli bir şekilde gönderilir.
+        Hassas veriler method=post olarak gönderilmelidir.
+
+        action = Formdaki verilerin hangi sayfaya gönderileceğini belirtir.
+        Eğer action özelliği belirtilmez ise varsayılan olarak aynı sayfaya gönderilir.
+     -->
+    <form method="post" action="kayit.php" >
+        <label>Kullanıcı Adınız :</label>
+        <input type="text" name="txtKullaniciAdi" />
+        <br><br>
+        
+        <label>E-posta Adresiniz :</label>
+        <input type="email" name="txtEposta" />
+        <br><br>
+
+        <label>Parolanız</label>
+        <input type="password" name="txtParola" />
+        <br><br>
+
+        <input type="submit" value="Kayıt Ol" name="btnKayitOl" />
+
+    </form>
+
+</body>
+</html>

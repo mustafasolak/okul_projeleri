@@ -1,0 +1,11 @@
+Merhaba Arkadaşlar,
+
+Sınavınızda kullanacağınız ses, resim, metin ve video elemanları bu yönergenin bulunduğu klasörde yer almaktadır.
+
+Sizden 3 adet sayfa oluşturmanız istenmektedir. Sayfa isimleri konusunda karışıklık yaşamamanız için ihtiyacınız olan sayfalar, sayfalar klasörü altında hazır halde sizlere verilmiştir. sablon.html dosyası hazırlayacak olduğunuz sayfaların omurgası, şablonu olacak şekilde hazırlanıp sizlere verilmiştir. 
+
+Her bir sayfa hazır olarak sizlere sunulmuştur. Bu sayfaların içerisinde yorum satırları ile nerelere hangi içeriği ve etiketi eklemeniz gerektiği belirtilmiştir.
+
+Her bir sayfanın ekran görüntüsü sizlere bu yönergenin bulunduğu klasör içerisinde verilmiştir. Bu ekran resimlerinde sayfaların nasıl göründüğü bilgisi yer almaktadır. Buradaki bilgilere göre sayfaları tasarlayınız.
+
+Başarılar.

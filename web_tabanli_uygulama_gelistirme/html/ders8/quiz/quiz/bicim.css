@@ -1,0 +1,41 @@
+li {
+    margin: 10px;
+    background-color: aliceblue;
+    padding: 10px;
+
+}
+
+li a {
+    text-decoration: none;
+    color: chocolate;
+    font-weight: 500;
+}
+
+#container {
+    margin: auto;
+    width: 1200px;
+}
+
+audio {
+    width: 100%;
+    border-radius: 2em;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-panel {
+    background-color: rgb(241, 142, 13);
+    color: rgb(255, 255, 255);
+}
+
+table,
+th,
+td {
+    border: 5px darkgoldenrod dotted;
+    padding: 10px;
+}
+
+td,
+th {
+    height: 30px;
+    text-align: center;
+}
