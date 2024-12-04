@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Kayıt Formu</title>
+</head>
+
+<body>
+
+    <h3>YENİ KULLANICI KAYIT FORMU</h3>
+    <form method="get">
+
+        <label for="renk">Favori Renginiz</label>
+        <input type="color" name="renk" id="renk">
+        <hr>
+        
+        <label for="selectOkulTurleri">Okul Türü</label>
+        <select name="selectOkulTurleri" id="selectOkulTurleri">
+            <option value="-1">Seçiniz</option>
+            <option value="0">Meslek Lisesi</option>
+            <option value="1">Anadolu Lisesi</option>
+            <option value="2">Fen Lisesi</option>
+        </select>
+        <hr>
+
+        <label for="txtKullaniciAdi">Kullanıcı Adı</label>
+        <input type="text" name="txtKullaniciAdi" id="txtKullaniciAdi" minlength="3" maxlength="15" />
+        <hr>
+
+        <label for="txtEpostaAdresi">E-posta Adresi</label>
+        <input type="email" name="txtEpostaAdresi" id="txtEpostaAdresi">
+        <hr>
+
+        <label for="txtParola">Parola</label>
+        <input type="password" name="txtParola" id="txtParola" minlength="4" maxlength="8" />
+        <hr>
+
+        <label for="dtDogumTarihi">Doğum Tarihi</label>
+        <input type="date" name="dtDogumTarihi" id="dtDogumTarihi" value="2024-12-05" min="1985-01-01" max="2014-12-31">
+        <hr>
+
+        <label for="">Cinsiyetiniz</label>
+        <input type="radio" name="radioCinsiyet" value="Erkek" />
+        Erkek
+        <input type="radio" name="radioCinsiyet" value="Kadın"  />
+        Kadın
+        <hr />
+
+        <label for="">Hobiler</label>
+        <br />
+        <input type="checkbox" name="chkHobiDans" value="dans" />Dans
+        <br>
+        <input type="checkbox" name="chkHobiGitar" value="gitar"  />Gitar
+        <br>
+        <input type="checkbox" name="chkHobiMuzik" value="muzik" />Müzik
+        <br>
+        <input type="checkbox" name="chkHobiJazz" value="jazz" />Jazz
+        <hr />
+
+        <input type="submit" value="Kayıt Ol">
+        <input type="reset" value="Temizle">
+
+    </form>
+</body>
+
+</html>

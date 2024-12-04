@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        Tarihi seçiniz <input type="datetime-local" name="tarih" id="tarih">
+        <hr>
+
+        Profil Resminizi Seçiniz :
+        <input type="file" name="profilResmi" id="profilResmi">
+        <hr />
+
+
+        <input type="hidden" name="gizliBilgi" value="saat 15 otogar">
+
+        <hr>
+        Kilogram : <input type="number" name="kilogram" id="kilogram" min="1" max="100">
+        <br>
+        Gram : <input type="number" name="gram" id="gram" min="1" max="100000">
+        <hr>
+
+
+        <label for="vol">Volume (between 0 and 100):</label>
+        <input type="range" id="vol" name="vol" min="0" max="100">
+        <hr>
+
+        <label for="phone">Telefon numaranız:(Ör: 505 246 6547)</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3} [0-9]{3} [0-9]{4}">
+        <hr>
+
+        <label for="appt">Kalkış saatini seçiniz :</label>
+        <input type="time" id="kalkisSaati" name="kalkisSaati">
+        <input type="submit" value="Gönder">
+
+    </form>
+
+</body>
+
+</html>
