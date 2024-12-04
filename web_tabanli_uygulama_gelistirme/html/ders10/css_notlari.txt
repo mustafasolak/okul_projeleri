@@ -1,0 +1,33 @@
+CSS
+
+CSS sayfaya 3 şekilde eklenir.
+
+1.YOL
+head etiketleri arasına style etiketleri açılarak eklenir.
+
+2.YOL
+Satır içi olarak, etiketin içine eklenir.
+
+3.YOL
+Başka bir dosyadan link etiketi yardımıyla çağrılarak eklenir. Çağrılacak dosyanın uzantısı .css olmak zorundadır.
+Çağırma işlemi head etiketi arasında yapılır.
+
+
+SEÇİÇİLER
+1. ETİKET SEÇİCİLER
+belirtilen etiketin özellikleri değiştirilir. Örn:
+h3{
+    color:red;
+}
+
+Sayfadaki tüm h3 etiketlerini seçer ve yazı renklerini kırmızı yapar.
+
+ol{
+    font-size:18px;
+}
+
+Sayfadaki tüm ol etiketlerini seçer ve yazı boyutunu 18 px yapar.
+
+2. KİMLİK(ID) SEÇİÇİLER
+
+id değeri sayfafa 1 tane olur.
