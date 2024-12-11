@@ -1,5 +1,5 @@
 CSS
-
+---------------------------------
 CSS sayfaya 3 şekilde eklenir.
 
 1.YOL
@@ -31,3 +31,4 @@ Sayfadaki tüm ol etiketlerini seçer ve yazı boyutunu 18 px yapar.
 2. KİMLİK(ID) SEÇİÇİLER
 
 id değeri sayfafa 1 tane olur.
+Kimlik seçicilerde # işareti kullanılır.
