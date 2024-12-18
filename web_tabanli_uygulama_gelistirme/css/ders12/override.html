@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Override</title>
+    <style>
+        #divBaslik {
+            height: 100px;
+            background-color: red;
+        }
+
+        #divBaslik {
+            background-color: green;  /* bir önceki kırmızı arka plan rengi yerine yeşil renk gelecek */
+        }
+
+        #divOrnek {
+            background-color: antiquewhite;
+            padding: 10px;
+            margin-top: 30px;
+            border: 1px black solid;
+            width: 600px;
+        }
+
+        div h2 {
+            color: blue;
+        }
+
+        h2 {
+            color: pink !important;
+            /*  Çocuk seçici ve torun seçicinin kurallarını ezdik ve yeni kural belirledik */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="divBaslik">
+        Selam
+    </div>
+
+    <div id="divOrnek">
+        Bu bir div
+        <h2>Ben de bir başlığım</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet accusantium quidem assumenda earum
+            sed obcaecati, sapiente esse odit, sit in est accusamus? Omnis voluptatibus obcaecati necessitatibus quae
+            doloribus cum.
+        </p>
+    </div>
+
+</body>
+
+</html>
