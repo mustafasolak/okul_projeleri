@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        CSS Descendant Selector
+    </title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        div h2 {
+            font-size: 46px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2 style="color:green;">
+            ŞEHİT ANIL BARIŞ ÇETİN MTAL
+        </h2>
+
+        <div>
+            <h2> ŞEHİT ANIL BARIŞ ÇETİN MTAL</h2>
+        </div>
+    </div>
+
+    <p>
+        GeeksforGeeks in green color is
+        example of child Selector
+        <br>other GeekforGeeks is example
+        of descendant Selector
+        <div>
+            <p>
+                Selamlar
+               <p>
+                ben p yim
+                <h2>Bende p nin içindeki divin içindeki p nin içindeki h2 yim p>div>p>p>h2</h2>
+               </p>
+            </p>
+        </div>
+    </p>
+    <h2>Ben de diğer h2 yim</h2>
+</body>
+
+</html>
