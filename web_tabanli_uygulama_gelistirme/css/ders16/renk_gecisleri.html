@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renk Geçişleri</title>
+    <style>
+        #kutu1 {
+            width: 250px;
+            height: 100px;
+            background: linear-gradient(to left, red, orange);
+        }
+
+        #kutu2 {
+            width: 250px;
+            height: 100px;
+            background: linear-gradient(to top right, blue, pink);
+        }
+
+        div:hover {
+            width: 1000px;
+            cursor: hand;
+            transition-property: width;
+            transition-duration: 0.5s;
+            transition-delay: 0.1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="kutu1"></div>
+    <div id="kutu2"></div>
+</body>
+
+</html>
