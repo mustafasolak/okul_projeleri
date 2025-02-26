@@ -1,0 +1,44 @@
+/*
+body{
+    background-color: antiquewhite;
+}
+*/
+#kutu1{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+
+
+@media screen and (min-width:200px) {
+    body{
+        background-color: red;
+    }
+    #kutu1{
+        width: 200px;
+        height: 100px;
+        background-color: blue;
+    }
+}
+@media screen and (min-width:400px) {
+    body{
+        background-color: bisque;
+    }
+    #kutu1{
+        width: 400px;
+        height: 100px;
+        background-color: blue;
+    }
+}
+
+@media screen and (min-width:600px) {
+    body{
+        background-color: aquamarine;
+    }
+    #kutu1{
+        width: 600px;
+        height: 100px;
+        background-color: blue;
+    }
+}
+
