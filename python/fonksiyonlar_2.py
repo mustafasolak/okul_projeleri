@@ -1,6 +1,6 @@
 # Fonksiyonlar ile hesap makinesi
-
-sayi1 = sayi2 = 0
+sayi1 = 0
+sayi2 = 0
 
 def menu():
     print("=== MENÜ ===")
