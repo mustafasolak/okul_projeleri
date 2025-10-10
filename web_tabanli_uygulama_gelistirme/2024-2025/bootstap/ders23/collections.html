@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksiyonlar - Lüks Takı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">LÜKS TAKI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">YENİ KOLEKSİYON</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="collections.html">KOLEKSİYONLAR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HEDİYELİK</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HAKKIMIZDA</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-shopping-bag"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Collection Header -->
+    <div class="collection-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>ALTIN KOLEKSİYONU</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="filter-section">
+                    <h5>Filtreler</h5>
+                    <div class="filter-group">
+                        <h6>Kategori</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="kolye">
+                            <label class="form-check-label" for="kolye">Kolye</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="kupeler">
+                            <label class="form-check-label" for="kupeler">Küpeler</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="yuzukler">
+                            <label class="form-check-label" for="yuzukler">Yüzükler</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h6>Fiyat Aralığı</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="price1">
+                            <label class="form-check-label" for="price1">₺0 - ₺1.000</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="price2">
+                            <label class="form-check-label" for="price2">₺1.000 - ₺3.000</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="price3">
+                            <label class="form-check-label" for="price3">₺3.000+</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="collection-sort mb-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <p class="mb-0">Toplam 24 ürün</p>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <select class="form-select d-inline-block w-auto">
+                                <option>En Yeni</option>
+                                <option>Fiyat: Düşükten Yükseğe</option>
+                                <option>Fiyat: Yüksekten Düşüğe</option>
+                                <option>En Çok Satanlar</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <!-- Product Cards -->
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://picsum.photos/id/1005/800/1000" class="img-fluid" alt="Altın Kolye">
+                                <div class="product-overlay">
+                                    <a href="#" class="btn btn-light">Hızlı Bakış</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h5>Altın Kolye</h5>
+                                <p class="price">₺2,999</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://picsum.photos/id/1006/800/1000" class="img-fluid" alt="Altın Yüzük">
+                                <div class="product-overlay">
+                                    <a href="#" class="btn btn-light">Hızlı Bakış</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h5>Altın Yüzük</h5>
+                                <p class="price">₺1,899</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://picsum.photos/id/1008/800/1000" class="img-fluid" alt="Altın Küpe">
+                                <div class="product-overlay">
+                                    <a href="#" class="btn btn-light">Hızlı Bakış</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h5>Altın Küpe</h5>
+                                <p class="price">₺2,499</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more product cards as needed -->
+                </div>
+                <!-- Pagination -->
+                <nav class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Önceki</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Sonraki</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>LÜKS TAKI</h5>
+                    <p>En kaliteli takılar, en uygun fiyatlarla.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>HIZLI LİNKLER</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Yeni Koleksiyon</a></li>
+                        <li><a href="#">Koleksiyonlar</a></li>
+                        <li><a href="#">Hediyelik</a></li>
+                        <li><a href="#">Hakkımızda</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>MÜŞTERİ HİZMETLERİ</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#">İade ve Değişim</a></li>
+                        <li><a href="#">Kargo ve Teslimat</a></li>
+                        <li><a href="#">Gizlilik Politikası</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>İLETİŞİM</h5>
+                    <p>Email: info@lukstaki.com</p>
+                    <p>Tel: +90 555 123 4567</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-gallery">
+                                <div class="main-image mb-3">
+                                    <img src="" class="img-fluid" id="modalMainImage" alt="Ürün Görseli">
+                                </div>
+                                <div class="thumbnail-images d-flex gap-2">
+                                    <img src="" class="img-thumbnail" alt="Thumbnail 1">
+                                    <img src="" class="img-thumbnail" alt="Thumbnail 2">
+                                    <img src="" class="img-thumbnail" alt="Thumbnail 3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-details">
+                                <h2 class="product-title mb-3" id="modalProductTitle"></h2>
+                                <p class="product-price h4 mb-4" id="modalProductPrice"></p>
+                                <div class="product-description mb-4">
+                                    <p id="modalProductDescription"></p>
+                                </div>
+                                <div class="product-actions">
+                                    <div class="quantity-selector mb-4">
+                                        <label class="form-label">Adet</label>
+                                        <div class="input-group" style="max-width: 150px;">
+                                            <button class="btn btn-outline-secondary" type="button" id="decreaseQuantity">-</button>
+                                            <input type="number" class="form-control text-center" value="1" min="1" id="quantity">
+                                            <button class="btn btn-outline-secondary" type="button" id="increaseQuantity">+</button>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-dark w-100 mb-3" id="addToCart">Sepete Ekle</button>
+                                    <button class="btn btn-outline-dark w-100">Favorilere Ekle</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Quick View Modal Functionality
+        document.querySelectorAll('.product-overlay .btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productCard = this.closest('.product-card');
+                const productImage = productCard.querySelector('img').src;
+                const productTitle = productCard.querySelector('h5').textContent;
+                const productPrice = productCard.querySelector('.price').textContent;
+
+                // Set modal content
+                document.getElementById('modalMainImage').src = productImage;
+                document.getElementById('modalProductTitle').textContent = productTitle;
+                document.getElementById('modalProductPrice').textContent = productPrice;
+                document.getElementById('modalProductDescription').textContent = 'Ürün açıklaması buraya gelecek...';
+
+                // Show modal
+                const modal = new bootstrap.Modal(document.getElementById('quickViewModal'));
+                modal.show();
+            });
+        });
+
+        // Quantity Selector
+        document.getElementById('decreaseQuantity').addEventListener('click', function() {
+            const quantityInput = document.getElementById('quantity');
+            if (quantityInput.value > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+
+        document.getElementById('increaseQuantity').addEventListener('click', function() {
+            const quantityInput = document.getElementById('quantity');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+    </script>
+</body>
+</html> 
