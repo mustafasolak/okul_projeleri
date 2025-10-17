@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelişmiş Geri Sayım Sayacı</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 700px;
+            width: 100%;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .quick-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        .quick-btn {
+            padding: 10px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quick-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .divider span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0 20px;
+            position: relative;
+            border-radius: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 1.1em;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .date-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        button.stop {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        button.reset {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+        }
+
+        #countdown-display {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .countdown-title {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .circular-countdown {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 30px;
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.1);
+            stroke-width: 12;
+        }
+
+        .circle-progress {
+            fill: none;
+            stroke: url(#gradient);
+            stroke-width: 12;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+
+        .countdown-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .time-display {
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        }
+
+        .time-label {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .countdown-details {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 10px;
+            min-width: 80px;
+        }
+
+        .detail-number {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .detail-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .completed {
+            font-size: 2em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            .container { padding: 25px; }
+            .circular-countdown { width: 220px; height: 220px; }
+            .time-display { font-size: 2.5em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⏰ Gelişmiş Geri Sayım</h1>
+        
+        <div id="setup-form">
+            <div class="quick-buttons">
+                <button class="quick-btn" onclick="setQuickTime(1)">1 dakika</button>
+                <button class="quick-btn" onclick="setQuickTime(3)">3 dakika</button>
+                <button class="quick-btn" onclick="setQuickTime(5)">5 dakika</button>
+                <button class="quick-btn" onclick="setQuickTime(10)">10 dakika</button>
+                <button class="quick-btn" onclick="setQuickTime(15)">15 dakika</button>
+                <button class="quick-btn" onclick="setQuickTime(30)">30 dakika</button>
+                <button class="quick-btn" onclick="setQuickTime(60)">1 saat</button>
+            </div>
+
+            <div class="divider">
+                <span>veya manuel ayarla</span>
+            </div>
+            
+            <div class="input-group">
+                <label for="event-name">Etkinlik Adı:</label>
+                <input type="text" id="event-name" placeholder="Örn: Toplantı, Egzersiz, Mola..." value="Geri Sayım">
+            </div>
+            
+            <div class="date-inputs">
+                <div class="input-group">
+                    <label for="date">Tarih:</label>
+                    <input type="date" id="date" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="time">Saat:</label>
+                    <input type="time" id="time" step="1" required>
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <button onclick="startCountdown()">Başlat</button>
+            </div>
+        </div>
+        
+        <div id="countdown-display">
+            <div class="countdown-title" id="event-title"></div>
+            
+            <div class="circular-countdown">
+                <svg width="280" height="280">
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="circle-bg" cx="140" cy="140" r="130"></circle>
+                    <circle class="circle-progress" id="progress-circle" cx="140" cy="140" r="130"></circle>
+                </svg>
+                <div class="countdown-text">
+                    <div class="time-display" id="main-time">00:00</div>
+                    <div class="time-label" id="main-label">dakika kaldı</div>
+                </div>
+            </div>
+
+            <div class="countdown-details" id="countdown-details">
+                <div class="detail-item">
+                    <div class="detail-number" id="days">0</div>
+                    <div class="detail-label">Gün</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-number" id="hours">0</div>
+                    <div class="detail-label">Saat</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-number" id="minutes">0</div>
+                    <div class="detail-label">Dakika</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-number" id="seconds">0</div>
+                    <div class="detail-label">Saniye</div>
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <button class="stop" onclick="pauseCountdown()" id="pause-btn">Duraklat</button>
+                <button class="reset" onclick="resetCountdown()">Yeni Sayım</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let countdownInterval;
+        let targetDate;
+        let totalDuration;
+        let isPaused = false;
+        let pausedTime = 0;
+        
+        // Circle progress variables
+        const circumference = 2 * Math.PI * 130;
+        
+        // Set current date and time as default
+        function setCurrentDateTime() {
+            const now = new Date();
+            // Format date as YYYY-MM-DD
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const dateStr = `${year}-${month}-${day}`;
+            
+            // Format time as HH:MM:SS
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeStr = `${hours}:${minutes}:${seconds}`;
+            
+            document.getElementById('date').value = dateStr;
+            document.getElementById('time').value = timeStr;
+        }
+        
+        // Initialize on page load
+        setCurrentDateTime();
+        
+        // Set up circle
+        const progressCircle = document.getElementById('progress-circle');
+        if (progressCircle) {
+            progressCircle.style.strokeDasharray = circumference;
+            progressCircle.style.strokeDashoffset = circumference;
+        }
+        
+        function setQuickTime(minutes) {
+            // Stop any existing countdown
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            
+            // Reset states
+            isPaused = false;
+            
+            // Calculate new target time
+            const now = new Date();
+            const target = new Date(now.getTime() + minutes * 60 * 1000);
+            
+            // Format date and time properly
+            const year = target.getFullYear();
+            const month = String(target.getMonth() + 1).padStart(2, '0');
+            const day = String(target.getDate()).padStart(2, '0');
+            const dateStr = `${year}-${month}-${day}`;
+            
+            const hours = String(target.getHours()).padStart(2, '0');
+            const mins = String(target.getMinutes()).padStart(2, '0');
+            const secs = String(target.getSeconds()).padStart(2, '0');
+            const timeStr = `${hours}:${mins}:${secs}`;
+            
+            document.getElementById('date').value = dateStr;
+            document.getElementById('time').value = timeStr;
+            document.getElementById('event-name').value = `${minutes} Dakikalık Zamanlayıcı`;
+            
+            // Start countdown directly
+            startCountdown();
+        }
+        
+        function startCountdown() {
+            const eventName = document.getElementById('event-name').value || 'Geri Sayım';
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            
+            if (!date || !time) {
+                alert('Lütfen tarih ve saat seçin!');
+                return;
+            }
+            
+            // Clear any existing interval
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            
+            // Parse the date and time
+            const [year, month, day] = date.split('-');
+            const [hours, minutes, seconds] = time.split(':');
+            
+            targetDate = new Date(
+                parseInt(year),
+                parseInt(month) - 1,
+                parseInt(day),
+                parseInt(hours),
+                parseInt(minutes),
+                parseInt(seconds) || 0
+            );
+            
+            const now = new Date();
+            if (targetDate <= now) {
+                alert('Lütfen gelecekte bir tarih ve saat seçin!');
+                return;
+            }
+            
+            totalDuration = targetDate.getTime() - now.getTime();
+            isPaused = false;
+            
+            // Update UI
+            document.getElementById('event-title').textContent = eventName;
+            document.getElementById('setup-form').style.display = 'none';
+            document.getElementById('countdown-display').style.display = 'block';
+            
+            // Reset circle progress
+            const progressCircle = document.getElementById('progress-circle');
+            if (progressCircle) {
+                progressCircle.style.strokeDashoffset = circumference;
+            }
+            
+            // Reset pause button
+            const pauseBtn = document.getElementById('pause-btn');
+            if (pauseBtn) {
+                pauseBtn.textContent = 'Duraklat';
+            }
+            
+            // Start updating
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+        }
+        
+        function updateCountdown() {
+            if (isPaused) return;
+            
+            const now = new Date().getTime();
+            const distance = targetDate.getTime() - now;
+            
+            if (distance <= 0) {
+                clearInterval(countdownInterval);
+                
+                // Update circle
+                const progressCircle = document.getElementById('progress-circle');
+                if (progressCircle) {
+                    progressCircle.style.strokeDashoffset = 0;
+                }
+                
+                // Update displays
+                document.getElementById('main-time').textContent = '🎉';
+                document.getElementById('main-label').textContent = 'Süre Doldu!';
+                
+                const detailsDiv = document.getElementById('countdown-details');
+                if (detailsDiv) {
+                    detailsDiv.innerHTML = '<div class="completed">🎊 Tamamlandı! 🎊</div>';
+                }
+                
+                // Play cheerful notification melody
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    
+                    // Function to play a single note
+                    function playNote(frequency, startTime, duration, gain = 0.3, type = 'sine') {
+                        const oscillator = audioContext.createOscillator();
+                        const gainNode = audioContext.createGain();
+                        
+                        oscillator.connect(gainNode);
+                        gainNode.connect(audioContext.destination);
+                        
+                        oscillator.frequency.value = frequency;
+                        oscillator.type = type;
+                        
+                        // Set gain with envelope
+                        gainNode.gain.value = 0;
+                        gainNode.gain.linearRampToValueAtTime(gain, audioContext.currentTime + startTime + 0.01);
+                        gainNode.gain.linearRampToValueAtTime(gain * 0.8, audioContext.currentTime + startTime + duration - 0.01);
+                        gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + startTime + duration);
+                        
+                        oscillator.start(audioContext.currentTime + startTime);
+                        oscillator.stop(audioContext.currentTime + startTime + duration);
+                    }
+                    
+                    // Play a cheerful ascending melody
+                    playNote(523.25, 0, 0.15, 0.3);      // C5
+                    playNote(587.33, 0.15, 0.15, 0.3);   // D5
+                    playNote(659.25, 0.30, 0.15, 0.3);   // E5
+                    playNote(783.99, 0.45, 0.15, 0.3);   // G5
+                    playNote(659.25, 0.60, 0.15, 0.3);   // E5
+                    playNote(783.99, 0.75, 0.15, 0.3);   // G5
+                    playNote(1046.50, 0.90, 0.30, 0.4);  // C6 (finale)
+                    
+                    // Add some bass harmony
+                    playNote(261.63, 0, 0.5, 0.15, 'triangle');      // C4 bass
+                    playNote(392.00, 0.5, 0.5, 0.15, 'triangle');    // G4 bass
+                    playNote(523.25, 0.9, 0.3, 0.2, 'triangle');     // C5 bass
+                    
+                } catch(e) {
+                    console.log('Ses çalınamadı:', e);
+                }
+                
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Update detailed display
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            
+            if (daysEl) daysEl.textContent = days;
+            if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+            if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+            if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+            
+            // Update main display
+            const mainTime = document.getElementById('main-time');
+            const mainLabel = document.getElementById('main-label');
+            
+            if (mainTime && mainLabel) {
+                if (days > 0) {
+                    mainTime.textContent = `${days}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+                    mainLabel.textContent = 'gün:saat:dakika';
+                } else if (hours > 0) {
+                    mainTime.textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    mainLabel.textContent = 'saat:dakika:saniye';
+                } else {
+                    mainTime.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    mainLabel.textContent = 'dakika kaldı';
+                }
+            }
+            
+            // Update circle progress
+            const progressCircle = document.getElementById('progress-circle');
+            if (progressCircle && totalDuration) {
+                const progress = 1 - (distance / totalDuration);
+                const offset = circumference - (progress * circumference);
+                progressCircle.style.strokeDashoffset = offset;
+            }
+        }
+        
+        function pauseCountdown() {
+            const pauseBtn = document.getElementById('pause-btn');
+            
+            if (isPaused) {
+                isPaused = false;
+                if (pauseBtn) pauseBtn.textContent = 'Duraklat';
+                const pauseDuration = Date.now() - pausedTime;
+                targetDate = new Date(targetDate.getTime() + pauseDuration);
+                totalDuration = targetDate.getTime() - new Date().getTime();
+                countdownInterval = setInterval(updateCountdown, 1000);
+            } else {
+                isPaused = true;
+                pausedTime = Date.now();
+                if (pauseBtn) pauseBtn.textContent = 'Devam Et';
+                clearInterval(countdownInterval);
+            }
+        }
+        
+        function resetCountdown() {
+            // Clear interval
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            
+            // Reset states
+            isPaused = false;
+            
+            // Update UI
+            document.getElementById('setup-form').style.display = 'block';
+            document.getElementById('countdown-display').style.display = 'none';
+            
+            // Reset pause button
+            const pauseBtn = document.getElementById('pause-btn');
+            if (pauseBtn) {
+                pauseBtn.textContent = 'Duraklat';
+            }
+            
+            // Reset displays
+            const progressCircle = document.getElementById('progress-circle');
+            if (progressCircle) {
+                progressCircle.style.strokeDashoffset = circumference;
+            }
+            
+            const detailsDiv = document.getElementById('countdown-details');
+            if (detailsDiv) {
+                detailsDiv.innerHTML = `
+                    <div class="detail-item">
+                        <div class="detail-number" id="days">0</div>
+                        <div class="detail-label">Gün</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-number" id="hours">0</div>
+                        <div class="detail-label">Saat</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-number" id="minutes">0</div>
+                        <div class="detail-label">Dakika</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-number" id="seconds">0</div>
+                        <div class="detail-label">Saniye</div>
+                    </div>
+                `;
+            }
+            
+            // Update to current time
+            setCurrentDateTime();
+        }
+        
+        // Allow Enter key to start countdown
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && document.getElementById('setup-form').style.display !== 'none') {
+                startCountdown();
+            }
+        });
+    </script>
+</body>
+</html>
