@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Etiketleri Uygulama Örneği</title>
+</head>
+<body>
+
+    <!-- Başlık Elemanları -->
+    <h1>Kodlama Dünyasına Giriş</h1>
+    <h2>Temel HTML Etiketleri</h2>
+    <h3>Metinleri Biçimlendirme</h3>
+    <h4>Listeleme Yöntemleri</h4>
+    <h5>Tablo Oluşturma</h5>
+    <h6>Sayfa Sonu</h6>
+
+    <!-- Paragraflar ve Biçimlendirmeler -->
+    <p>Web sayfaları oluştururken metinleri <b>kalın</b> ya da 
+    <strong>daha anlamlı bir şekilde vurgulanmış</strong> olarak gösterebiliriz. 
+    Ayrıca <i>italik</i> veya <em>dikkat çekici italik</em> yazılar da kullanılabilir. 
+    Önemli bir kısmı <u>altı çizili</u> yapabilir ya da <ins>sonradan eklenmiş</ins> bir bilgiyi işaretleyebiliriz.</p>
+
+    <p>Metnin boyutunu küçültmek için <small>küçük yazı</small> etiketi kullanılır. 
+    Bilimsel gösterimlerde H<sub>2</sub>O veya E=mc<sup>2</sup> gibi alt ve üst simgelerle ifadeler yazılabilir.</p>
+
+    <p>Artık geçerliliğini yitirmiş bir ifadeyi göstermek için <del>bu bölüm kaldırıldı</del> gibi bir gösterim yapılır.</p>
+
+    <p>Önceden yazılmış bir metnin düzenini korumak için <code>&lt;pre&gt;</code> etiketi kullanılır:</p>
+    <pre>
+Satır boşlukları
+    aynen korunur
+        hizalar bozulmaz.
+    </pre>
+
+    <!-- Listeleme Etiketleri -->
+    <h3>Favori Teknolojiler</h3>
+    <ul>
+        <li>HTML5</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+    </ul>
+
+    <h3>Proje Geliştirme Aşamaları</h3>
+    <ol>
+        <li>Planlama</li>
+        <li>Tasarım</li>
+        <li>Kodlama</li>
+        <li>Test ve Yayınlama</li>
+    </ol>
+
+    <h3>Terim Açıklamaları</h3>
+    <dl>
+        <dt>API</dt>
+        <dd>Farklı yazılımların birbiriyle iletişim kurmasını sağlayan arayüzdür.</dd>
+        <dt>Algoritma</dt>
+        <dd>Bir problemi çözmek için izlenen adım adım işlemler dizisidir.</dd>
+    </dl>
+
+    <!-- Tablo Etiketleri -->
+    <h3>Etkinlik Programı</h3>
+    <table border="1">
+        <tr>
+            <th>Zaman</th>
+            <th>Etkinlik</th>
+            <th>Sorumlu</th>
+        </tr>
+        <tr>
+            <td>09:00</td>
+            <td>Açılış Sunumu</td>
+            <td>Elif K.</td>
+        </tr>
+        <tr>
+            <td rowspan="2">10:00 - 11:00</td>
+            <td>HTML Atölyesi</td>
+            <td>Burak T.</td>
+        </tr>
+        <tr>
+            <td>JavaScript Atölyesi</td>
+            <td>Selin A.</td>
+        </tr>
+        <tr>
+            <td colspan="3">Ara / İkram Molası</td>
+        </tr>
+    </table>
+
+</body>
+</html>
