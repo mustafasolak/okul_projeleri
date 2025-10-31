@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Elemanları - 2</title>
+</head>
+<body>
+    <h3>Sipariş Formu</h3>
+    <form action="siparisler.html" method="get" name="siparis_formu">
+        
+        <label for="">Şehir seçiniz :</label>
+        <select name="sehirler" id="sehirler">
+            <option value="-1">Seçiniz</option>
+            <option value="Ankara">Ankara</option>
+            <option value="İstanbul">İstanbul</option>
+            <option value="İzmir">İzmir</option>
+            <option value="Bursa">Bursa</option>
+            <option value="Antalya">Antalya</option>
+        </select>
+        
+        <h5>İçecekler</h5>
+        <input type="checkbox" name="kutu_kola" id="kutu_kola"> Kutu Kola <br>
+        <input type="checkbox" name="ayran" id="ayran"> Ayran <br>
+        <input type="checkbox" name="salgam" id="salgam"> Şalgam <br>
+        <input type="checkbox" name="soda" id="soda"> Soda <br>
+        <input type="checkbox" name="su" id="su"> Su <br>
+        <input type="checkbox" name="cay" id="cay"> Çay <br>
+        <p>
+            Çay Şekerli mi ? <input type="radio" name="cay_sekeri" id="seker_evet" value="evet"> Evet
+            <input type="radio" name="cay_sekeri" id="seker_hayir" value="hayir"> Hayır
+        </p>
+        <input type="file" name="ozgecmis" id="ozgecmis" accept=".pdf,.docx,.jpg, .png, .jpeg">
+        <br>
+        <br>
+        <p>Renk seçin: <input type="color" name="renk"></p>
+        <p>Doğum tarihi: <input type="date" name="dogumtarihi"></p>
+        <p>Doğum günü:<input type="datetime" name="dogumgunu"></p>
+        <p>Ay ve Yıl: <input type="month" name="ay">
+        </p>
+        <p>Hafta ve Yıl: <input type="week" name="hafta"></p>
+        <p>Randevu saati: <input type="time" name="randevusaat"></p>
+        <p>Randevu tarihi ve saati: <input type="datetime-local" name="randevutarih"></p>
+        <p>E-posta: <input type="email" name="eposta"></p>
+        <p>Web sayfanız: <input type="url" name="weburl"></p>
+        <p>Sayı (1-9): <input type="number" name="sec" min="-5" max="19"></p>
+        <p>Parola: <input type="password" name="sifre"></p>
+        <p>Aralık (1-99): <input type="range" name="secim" min="1" max="99"></p>
+        <p>Arama: <input type="search" name="arama"></p>
+        <p>GSM: <input type="tel" name="gsmno"></p>
+        <input type="submit" value="Siparişi Al">
+    </form>
+</body>
+</html>
