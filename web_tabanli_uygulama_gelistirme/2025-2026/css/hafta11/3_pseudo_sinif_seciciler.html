@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sözde Sınıf Seçiciler(Pseudo Class Selectors)</title>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        a:link{
+            color:orange;
+        }
+        a:visited{
+            color:green;
+        }
+        a:hover{
+            color:red;
+            font-size: 28px;
+            background-color: yellow;
+        }
+        a:active{
+            color: purple;
+        }
+
+        input:focus{
+            border: none;
+            width: 300px;
+            background-color: lightblue;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <h3>Pseudo Class Seçiciler</h3>
+    <a href="https://www.google.com">Google</a><br>
+    <a href="https://www.youtube.com">Youtube</a><br>
+    <a href="https://www.github.com">Github</a><br>
+    <input type="text" name="username" id="username" placeholder="Kullanıcı Adı"><br>
+</body>
+</html>
