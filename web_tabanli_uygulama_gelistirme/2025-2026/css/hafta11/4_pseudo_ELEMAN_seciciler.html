@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Eleman Seçiciler</title>
+    <style>
+        p::first-letter {
+            font-size: 32px;
+            color: green;
+            font-weight: bold;
+        }
+
+        p::first-line {
+            font-size: 20px;
+            color: blue;
+            font-weight: bold;
+            background-color: yellow;
+        }
+
+        p::selection {
+            background-color: red;
+            color: white;
+        }
+
+        p.islemciler::before {
+            content: "İşlemciler > ";
+            background-color: lightgreen;
+            color: #000;
+        }
+
+        p.islemciler::after {
+            content: " < devamı gelecek...";
+            background-color: lightskyblue;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+        p.islemciler::before{
+            content: "İşlemciler > ";
+            font-weight: bold;
+            color: red;
+            background-color: lightsalmon;
+        }
+        p.islemciler::after{
+            content: " < devamı gelecek...";
+            font-weight: 100;
+            color: red;
+            background-color: lightsalmon;
+        }
+        p.bellekler::before{
+            content: "Bellekler > ";
+            font-weight: bold;
+            color: purple;
+            background-color: lightsalmon;
+        }
+        p::selection{
+            background-color: red;
+            color: white;
+        }*/
+    </style>
+</head>
+
+<body>
+    <span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur maiores iure eveniet illum quae in sit,
+        natus animi, sunt hic eius, earum modi est! Iure soluta architecto ullam obcaecati vel.
+    </span>
+    <div>
+        <p class="islemciler">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis ab laboriosam non vel aliquam veritatis,
+            impedit perferendis porro quae aut, nobis repellat commodi earum facere voluptatem quibusdam minus ipsum
+            voluptates?
+        </p>
+        <p class="bellekler">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At, eos debitis illo sapiente corrupti itaque
+            aliquam veritatis aspernatur odit et repudiandae cupiditate! Accusantium nostrum officia ipsum, assumenda
+            perspiciatis magni ab!
+        </p>
+    </div>
+
+</body>
+
+</html>
