@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sınıf Seçiciler (Class Selectors)</title>
+    <style>
+        .kirmizi,
+        .mavi {
+            padding: 20px;
+            width: 400px;
+            border-radius: 16px;
+        }
+
+        .mavi {
+            background-color: blue;
+            color: white;
+
+        }
+
+        .kirmizi {
+            background-color: red;
+            color: white;
+
+        }
+    </style>
+</head>
+<body>
+    <p class="mavi">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod beatae officiis unde, quis exercitationem
+        molestias debitis similique, labore quibusdam nostrum dolor, dolores voluptates. Ipsam in quae vitae dignissimos
+        doloremque rem?
+    </p>
+    <p class="kirmizi">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempora ipsa delectus ipsam quos sapiente
+        possimus unde? Aliquid labore quas quidem alias quia quod, eaque qui impedit nam quis ratione?
+    </p>
+    <p class="mavi">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis distinctio officia minus sit aut facilis
+        molestiae, laboriosam reprehenderit consequuntur esse, ratione iure corrupti vero neque. Aspernatur impedit nam
+        voluptate nemo.
+    </p>
+    <script>
+        document.getElementsByClassName("mavi")[0].style.fontSize = "30px";
+
+    </script>
+</body>
+</html>

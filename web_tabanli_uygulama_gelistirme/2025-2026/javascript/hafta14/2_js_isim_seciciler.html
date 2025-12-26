@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İsim Seçiciler(Name Selectors)</title>
+</head>
+<body>
+    <form action="">
+        Ad : <input type="text" name="bilgi" id="ad"> <br> <br>
+        Soyad : <input type="text" name="bilgi" id="soyad"> <br><br>
+        Email : <input type="email" name="bilgi" id="email"> <br><br>
+        Şifre : <input type="password" name="bilgi" id="sifre"> <br><br>
+
+    </form>
+    
+
+    <script>
+        document.getElementsByName("bilgi")[2].style.backgroundColor = "cyan";
+        document.getElementsByName("bilgi")[0].style.backgroundColor = "yellow";
+        document.getElementsByName("bilgi")[1].style.backgroundColor = "red";
+        document.getElementsByName("bilgi")[3].style.backgroundColor = "black";
+        document.getElementsByName("bilgi")[3].style.color = "red";
+    </script>
+
+</body>
+</html>

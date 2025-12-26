@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Değişkenler</title>
+</head>
+<body>
+    <p>
+        MErhabalar bu site bilgi amacıyla hazırlanmıştır.
+    </p>
+    <p>Sayı 1 = <span id="spanSayi1"></span></p>
+    <p>Sayı 2 = <span id="spanSayi2"></span></p>
+    <p>Sayı 3 = <span id="spanSayi3"></span></p>
+    <span id="toplam"></span>
+    <br>
+    <span id="fark"></span>
+    <br>
+    <span id="carpim"></span>
+    <br>
+    <span id="bolum"></span>
+    <br><br>
+    <script>
+        var sayi1 = 15;     // integer türünde değişken
+        var piSayisi = 3.14; // float türünde değişken
+        var isim = "Mustafa"; // string türünde değişken
+        var dogruMu = true; // boolean türünde değişken
+
+        console.log("Merhaba");
+        console.log("sayi1 = ", sayi1);
+        console.log("piSayisi = ", piSayisi);
+        console.log("isim = ", isim);
+        console.log("dogruMu = ", dogruMu);
+
+        var sayi2 = 45;
+        var sayi3 = 25;
+        var toplam = sayi2 + sayi3;
+        var fark = sayi2 - sayi3;
+        var carpim = sayi2 * sayi3;
+        var bolum = sayi2 / sayi3;
+
+        console.log("Toplam = ", toplam);
+        console.log("Fark = ", fark);
+        console.log("Çarpım = ", carpim);
+        console.log("Bölüm = ", bolum);
+
+        document.getElementById("spanSayi1").innerText = sayi1;
+        document.getElementById("spanSayi2").innerText = sayi2;
+        document.getElementById("spanSayi3").innerText = sayi3;
+
+        document.getElementById("toplam").innerHTML = "<b>Toplam = </b><i>" + toplam + "</i>";
+        document.getElementById("fark").innerHTML = "<h1>Fark = " + fark + "</h1>";
+        document.getElementById("carpim").innerText = "Çarpım = " + carpim;
+        document.getElementById("bolum").innerText = "Bölüm = " + bolum;
+    </script>
+</body>
+
+</html>
