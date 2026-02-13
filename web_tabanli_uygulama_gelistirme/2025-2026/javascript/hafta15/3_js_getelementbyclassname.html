@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementByClassName</title>
+    <style>
+        .g{
+            color:red;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .a{
+            color:yellow;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .l{
+            color:orange;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .t{
+            color:rgb(182, 142, 9);
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <span class="g">G</span>
+    <span class="a">A</span>
+    <span class="l">L</span>
+    <span class="a">A</span>
+    <span class="t">T</span>
+    <span class="a">A</span>
+    <span class="s">S</span>
+    <span class="a">A</span>
+    <span class="r">R</span>
+    <span class="a">A</span>
+    <span class="y">Y</span>
+    <script>
+        document.getElementsByClassName("a")[0].style.color = "purple";
+        document.getElementsByClassName("a")[1].style.color = "pink";
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+body{
+            display: flex;
+            justify-content: center;
+        }
+        #resimGosterici {
+            width: 250px;
+        }
+        #galeri{
+            width: 300px;
+            background-color: lightseagreen;
+        }
+        #divResimler{
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            background-color: lightcoral;
+        }
+        #divDugmeler{
+            height: 50px;
+            display: flex;
+            justify-content: space-around; 
+            align-items: center;
+            background-color: lightblue;
+        }

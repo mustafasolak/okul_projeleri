@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Olaylar(Events)</title>
+</head>
+<body>
+    <div style="position: absolute; bottom: 10px; right: 10px;">
+        <button onclick="darkMode()">Dark Mode</button> 
+        <span> - </span>
+        <button onclick="lightMode()">Light Mode</button>
+    </div>
+
+    <button onclick="fenerbahce()">Fenerbahçe</button><br>
+    <button onclick="galatasaray()">Galatasaray</button>
+    
+    <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, saepe odit earum rerum enim quos deleniti assumenda iste odio! Fuga eum iste nam placeat dolor sed, quos repellat explicabo laboriosam!
+    </div>
+    <script>
+        function darkMode(){
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
+        function lightMode(){
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+        }
+        
+        function fenerbahce(){
+            alert("Fenerbahçelilere selam!");
+        }
+
+        function galatasaray(){
+            alert("Galatasaraylılara selam!");
+        }
+    </script>
+</body>
+</html>
