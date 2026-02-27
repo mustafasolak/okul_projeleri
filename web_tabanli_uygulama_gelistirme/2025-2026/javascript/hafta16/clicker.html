@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Uygulaması</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #sayacDegeri {
+            font-size: 64px;
+            margin-top: 20px;
+            color: #ad0707;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clicker Uygulaması</h1>
+    <p>Bu uygulama, tıklama sayısını artırmak için JavaScript kullanır.</p>
+    <button id="btnArttir" onclick="arttir()">Arttır!</button>
+    <button id="btnAzalt" onclick="azalt()">Azalt</button>
+    <p id="sayacDegeri">0</p>
+    <script>
+        var sayac = 0;
+        function arttir(){
+            sayac++;
+            document.getElementById("sayacDegeri").innerText = sayac;
+        }
+        function azalt(){
+            if(sayac <= 0) {
+                alert("Sayacı azaltamazsınız, zaten 0!");
+                return;
+            }
+            sayac--;
+            document.getElementById("sayacDegeri").innerText = sayac;
+        }
+    </script>
+</body>
+</html>

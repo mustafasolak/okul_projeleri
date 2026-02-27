@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Büyüyen Kare</title>
+</head>
+<body>
+    <div id="kare" style="width: 100px; height: 100px; border:1px solid black;"></div>
+    <button onclick="buyuyenKare()">Büyüyen Kare</button>
+    <script>
+        var boyut = 100;
+        function buyuyenKare() {
+            boyut += 10;
+            document.getElementById("kare").style.width = boyut + "px";
+            document.getElementById("kare").style.height = boyut + "px";
+        }
+    </script>
+</body>
+</html>

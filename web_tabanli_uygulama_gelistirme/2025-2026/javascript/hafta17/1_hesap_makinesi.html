@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Makinesi</title>
+    <link rel="stylesheet" href="hesap_makinesi.css">
+    <script src="hesap_makinesi.js"></script>
+</head>
+
+<body>
+    <div id="divHesapMakinesi">
+        <div id="divSayiGirisi">
+            <input type="text" id="girilenSayi" placeholder="0">
+        </div>
+        <div id="divDugmeler">
+
+            <div class="satir">
+                <button id="btn0" class="dugme" onclick="hesapla('0')">0</button>
+                <button id="btn1" class="dugme" onclick="hesapla('1')">1</button>
+                <button id="btn2" class="dugme" onclick="hesapla('2')">2</button>
+                <button id="btn3" class="dugme" onclick="hesapla('3')">3</button>
+
+            </div>
+            <div class="satir">
+                <button id="btn4" class="dugme" onclick="hesapla('4')">4</button>
+                <button id="btn5" class="dugme" onclick="hesapla('5')">5</button>
+                <button id="btn6" class="dugme" onclick="hesapla('6')">6</button>
+                <button id="btn7" class="dugme" onclick="hesapla('7')">7</button>
+            </div>
+            <div class="satir">
+                <button id="btn8" class="dugme" onclick="hesapla('8')">8</button>
+                <button id="btn9" class="dugme" onclick="hesapla('9')">9</button>
+                <button id="btnEsittir" class="dugme" onclick="hesapla('=')">=</button>
+                <button id="btnTemizle" class="dugme" onclick="hesapla('C')">C</button>
+            </div>
+
+            <div class="dugmeler">
+                <button id="btnTopla" class="dugme" onclick="hesapla('+')">+</button>
+                <button id="btnCikar" class="dugme" onclick="hesapla('-')">-</button>
+                <button id="btnCarp" class="dugme" onclick="hesapla('*')">*</button>
+                <button id="btnBol" class="dugme" onclick="hesapla('/')">/</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

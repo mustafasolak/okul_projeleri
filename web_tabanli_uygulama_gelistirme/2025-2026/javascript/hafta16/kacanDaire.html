@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaçan Daire</title>
+</head>
+<body>
+    
+    <h1>Kaçan Daire Oyunu</h1>
+    <p>Bu oyunda, fare imlecini dairenin üzerine getirmeye çalışın!</p>
+    divin arka plan resmini angry.png olarak değiştirin.
+
+    <div id="daire" style="width: 64px; height: 64px; background-image: url('angry.png'); position: absolute;"></div>
+    <script>
+        var daire = document.getElementById("daire");
+        var body = document.body;
+
+        function hareketEttir() {
+            var ekranYukseklik = body.clientHeight;
+            var x = Math.random() * (body.clientWidth - 64);
+            var y = Math.random() * (body.clientHeight - 64);
+            daire.style.left = x + "px";
+            daire.style.top = y + "px";
+        }
+
+        daire.addEventListener("mouseover", hareketEttir);
+        // İlk konumlandırma
+        hareketEttir();
+    </script>
+
+</body>
+</html>

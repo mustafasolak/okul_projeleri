@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sohbet Sayfası</title>
+    <style>
+        body{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #mesajlar {
+            border: 1px black solid;
+            height: 500px;
+            padding: 10px;
+            border-radius: 16px;
+            background-color: lightsalmon;
+        }
+
+        .profilResmi {
+            float: left;
+        }
+
+        .mesajIcerik {
+            float: left;
+            margin-left: 10px;
+            padding: 10px;
+        }
+
+        #imgProfil {
+            border-radius: 25px;
+        }
+
+        .mesajTarihi {
+            margin-left: 20px;
+            font-size: 12px;
+            color: gray;
+        }
+
+        .mesaj {
+            background-color: antiquewhite;
+            height: 60px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 16px;
+        }
+        #mesajGonderimAlani {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: lightblue;
+            border-radius: 16px;
+        }
+        #mesajInput {
+            width: 400px;
+            padding: 5px;
+            line-height: 30px;
+            border-radius: 8px;
+            border: 1px solid gray;
+            text-indent: 10px;
+            font-size: 16px;
+            font-weight:700;
+            color: black;
+            letter-spacing: 1px;
+        }
+        label {
+            font-size: 16px;
+            font-weight: 700;
+            color: black;
+            margin-right: 10px;
+        }
+        #btnMesajGonder {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            background-color: green;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>KEYİFLİ SOHBETLER</h3>
+    <div id="mesajGonderimAlani">
+        <label for="mesajInput">Mesajınız :</label>
+        <input type="text" id="mesajInput" placeholder="mesajınızı patlatın...." onkeypress="" />
+        <input type="button" id="btnMesajGonder" value="Gönder" onclick="mesajGonder()" />
+    </div>
+
+
+    <div id="mesajlar">
+        <div class="mesaj">
+            <div class="profilResmi">
+                <img id="imgProfil"
+                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                    alt="Profil Resmi" width="50" height="50">
+            </div>
+            <div class="mesajIcerik">
+                Merhaba, nasılsın?
+                <span class="mesajTarihi">17.15</span>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        document.getElementById("mesajInput").addEventListener("keydown", function (event) {
+            if (event.keyCode === 13) {
+                mesajGonder();
+            }
+        });
+
+        function mesajGonder() {
+            var mesaj = document.getElementById("mesajInput").value;
+            var eskiMesajlar = document.getElementById("mesajlar").innerHTML;
+
+            var mesajSablonu = "<div class='mesaj'><div class='profilResmi'><img id='imgProfil' src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png' alt='Profil Resmi' width='50' height='50'></div><div class='mesajIcerik'>" + mesaj + "<span class='mesajTarihi'>17.15</span></div></div>";
+
+            var yeniMesaj = eskiMesajlar + mesajSablonu;
+
+            document.getElementById("mesajlar").innerHTML = yeniMesaj;
+            document.getElementById("mesajInput").value = "";
+
+        }
+    </script>
+
+</body>
+
+</html>

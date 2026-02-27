@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olaylar ( Events )</title>
+</head>
+
+<body>
+
+    <h1>JavaScript Olaylar</h1>
+    <p>JavaScript olayları, kullanıcı etkileşimlerine tepki vermek için kullanılır.</p>
+    <p>Örneğin, bir düğmeye tıklandığında bir fonksiyon çalıştırmak için olay dinleyicileri kullanılır.</p>
+
+    <button id="btnKaranlikMod" onclick="karanlikYap()">Karanlık Mod</button>
+    <button id="btnAydinlikMod" onclick="aydinlikYap()">Aydınlık Mod</button>
+
+    <script>
+        function mesajVer() {
+            alert("Merhaba ");
+        }
+
+        function karanlikYap() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
+        function aydinlikYap() {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+        }
+    </script>
+</body>
+
+</html>
