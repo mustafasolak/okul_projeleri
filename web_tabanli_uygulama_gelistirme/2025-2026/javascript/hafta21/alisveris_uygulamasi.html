@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Alışveriş Sepeti</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            color: #1e293b;
+            min-height: 100vh;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .solAlan {
+            width: 100%;
+        }
+
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .hero p {
+            color: #475569;
+            font-size: 16px;
+        }
+
+        .urunlerBaslik {
+            margin-bottom: 18px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .urunGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .urunKarti {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .urunKarti:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 35px rgba(15, 23, 42, 0.12);
+        }
+
+        .urunResim {
+            background: #f8fafc;
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .imgUrunResmi {
+            width: 100%;
+            max-width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        .urunIcerik {
+            padding: 18px;
+        }
+
+        .urunIcerik h3 {
+            font-size: 20px;
+            margin-bottom: 14px;
+            color: #0f172a;
+        }
+
+        .urunAlt {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .fiyat {
+            font-size: 18px;
+            font-weight: bold;
+            color: #16a34a;
+        }
+
+        .btnSepeteEkle {
+            border: none;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+
+        .btnSepeteEkle:hover {
+            opacity: 0.92;
+            transform: scale(1.03);
+        }
+
+        #sepet {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 20px;
+        }
+
+        #sepet h2 {
+            margin-bottom: 18px;
+            color: #0f172a;
+        }
+
+        #sepetListesi {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        #sepetListesi li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #sepetListesi img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 10px;
+            background: white;
+            padding: 4px;
+        }
+
+        .bosMesaj {
+            color: #64748b;
+            font-size: 14px;
+            padding: 10px 0;
+        }
+
+        .toplamKutu {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+        }
+
+        .toplamKutu h3 {
+            font-size: 20px;
+            color: #1e3a8a;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            #sepet {
+                position: static;
+            }
+
+            .hero h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            var toplamTutar = 0;
+
+            $(".btnSepeteEkle").click(function () {
+                var urunAdi = $(this).data("urun-adi");
+                var urunFiyati = parseFloat($(this).data("urun-fiyati"));
+                var urunResmi = $(this).data("resim");
+
+                toplamTutar += urunFiyati;
+                $("#toplamTutar").text(toplamTutar.toFixed(2));
+
+                $(".bosMesaj").remove();
+
+                $("#sepetListesi").append(`
+                    <li>
+                        <img src="${urunResmi}" alt="${urunAdi}">
+                        <div>
+                            <strong>${urunAdi}</strong><br>
+                            <span>${urunFiyati.toFixed(2)} TL</span>
+                        </div>
+                    </li>
+                `);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="solAlan">
+            <div class="hero">
+                <h1>Alışveriş Sepeti Uygulaması</h1>
+                <p>Beğendiğiniz ürünleri sepete ekleyin, toplam tutarı anında görün.</p>
+            </div>
+
+            <h2 class="urunlerBaslik">Ürünler</h2>
+
+            <div class="urunGrid">
+                <div class="urunKarti">
+                    <div class="urunResim">
+                        <img src="images/armut.png" alt="Armut" class="imgUrunResmi">
+                    </div>
+                    <div class="urunIcerik">
+                        <h3>Armut</h3>
+                        <div class="urunAlt">
+                            <span class="fiyat">5 TL</span>
+                            <button class="btnSepeteEkle" data-urun-adi="Armut" data-urun-fiyati="5.00"
+                                data-resim="images/armut.png">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="urunKarti">
+                    <div class="urunResim">
+                        <img src="images/elma.png" alt="Elma" class="imgUrunResmi">
+                    </div>
+                    <div class="urunIcerik">
+                        <h3>Elma</h3>
+                        <div class="urunAlt">
+                            <span class="fiyat">15 TL</span>
+                            <button class="btnSepeteEkle" data-urun-adi="Elma" data-urun-fiyati="15.00"
+                                data-resim="images/elma.png">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="urunKarti">
+                    <div class="urunResim">
+                        <img src="images/karpuz.png" alt="Karpuz" class="imgUrunResmi">
+                    </div>
+                    <div class="urunIcerik">
+                        <h3>Karpuz</h3>
+                        <div class="urunAlt">
+                            <span class="fiyat">25 TL</span>
+                            <button class="btnSepeteEkle" data-urun-adi="Karpuz" data-urun-fiyati="25.00"
+                                data-resim="images/karpuz.png">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sepet">
+            <h2>🛒 Alışveriş Sepeti</h2>
+            <ul id="sepetListesi">
+                <li class="bosMesaj">Henüz sepete ürün eklenmedi.</li>
+            </ul>
+
+            <div class="toplamKutu">
+                <h3>Toplam Tutar: <span id="toplamTutar">0.00</span> TL</h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

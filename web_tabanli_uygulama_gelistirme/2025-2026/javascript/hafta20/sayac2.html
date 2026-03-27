@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zamanlayıcılar - 2</title>
+</head>
+
+<body>
+    Zamanlayıcılar - 2 konusu için örnekler burada yer alacak.
+
+    <div id="sayac">
+        0
+    </div>
+
+    <script>
+        var sayac = 10;
+        var a = setInterval(function () {
+            sayac = sayac - 1;
+            document.getElementById("sayac").innerHTML = sayac;
+            if (sayac == 0) {
+                clearInterval(a);
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

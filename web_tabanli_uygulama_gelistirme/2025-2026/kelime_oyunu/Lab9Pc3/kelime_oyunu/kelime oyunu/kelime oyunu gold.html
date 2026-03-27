@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://127.0.0.1:5500/kelime4_oyunu.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+<title>✨ Golden Kelime Master</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial;
+background:radial-gradient(circle,#3b2a00,#000);
+overflow:hidden;
+color:white;
+}
+
+.container{
+text-align:center;
+padding:40px;
+border-radius:25px;
+background:rgba(0,0,0,0.65);
+box-shadow:0 0 60px gold;
+}
+
+h1{
+color:gold;
+font-size:40px;
+text-shadow:0 0 15px gold,0 0 40px gold;
+}
+
+.word{
+font-size:42px;
+letter-spacing:10px;
+margin:25px 0;
+color:#ffd700;
+text-shadow:0 0 10px gold;
+}
+
+input{
+padding:12px;
+border-radius:10px;
+border:none;
+font-size:16px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:12px;
+background:linear-gradient(45deg,#ffd700,#fff3a0);
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+box-shadow:0 0 20px gold;
+}
+
+.info{
+margin-top:15px;
+font-size:20px;
+color:gold;
+}
+
+.sparkle{
+position:fixed;
+width:6px;
+height:6px;
+background:gold;
+border-radius:50%;
+box-shadow:0 0 10px gold;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{transform:translateY(-50px);opacity:1;}
+100%{transform:translateY(100vh);opacity:0;}
+}
+
+.confetti{
+position:fixed;
+width:8px;
+height:8px;
+background:gold;
+animation:explode 1s linear forwards;
+}
+
+@keyframes explode{
+0%{transform:scale(1);}
+100%{transform:translateY(200px) rotate(720deg);opacity:0;}
+}
+
+</style>
+
+
+
+
+<div class="container">
+
+<h1>✨ GOLDEN KELİME MASTER ✨</h1>
+
+<div id="level">Seviye: 1 / 40</div>
+
+<div class="word" id="scrambled">amas</div>
+
+<input id="answer" placeholder="Kelimeyi yaz">
+
+<button onclick="check()">Kontrol</button>
+
+<p id="result"></p>
+
+<div class="info">⭐ Puan: <span id="score">0</span></div>
+<div class="info">🏆 High Score: <span id="high">50</span></div>
+<div class="info">⏱ Süre: <span id="time">-1</span></div>
+
+</div>
+
+<script>
+
+const words=[
+"masa","kedi","elma","saat","hava",
+"kalem","kitap","gunes","deniz","yildiz",
+"araba","okyanus","orman","bulut","kamera",
+"telefon","yazilim","internet","klavye","algoritma",
+"program","teknoloji","bilgisayar","gelistirme","veritabani",
+"tasarimci","uygulama","sistemler","muhendislik","programlama",
+"verimlilik","guvenlikler","donanimlar","yapayzeka","teknolojiler",
+"bilgisayarlar","programcilar","yazilimcilar","gelistiriciler","teknolojistler"
+]
+
+let level=0
+let score=0
+let currentWord=""
+let time=30
+let high=localStorage.getItem("highscore") || 0
+
+document.getElementById("high").textContent=high
+
+function shuffle(word){
+return word.split('').sort(()=>Math.random()-0.5).join('')
+}
+
+function newLevel(){
+
+if(level>=40){
+
+document.getElementById("scrambled").textContent="OYUN BİTTİ 👑"
+
+return
+}
+
+currentWord=words[level]
+
+document.getElementById("scrambled").textContent=shuffle(currentWord)
+
+document.getElementById("answer").value=""
+
+document.getElementById("level").textContent="Seviye: "+(level+1)+" / 40"
+
+time=30
+
+}
+
+function check(){
+
+let guess=document.getElementById("answer").value.toLowerCase()
+
+if(guess===currentWord){
+
+score+=10
+
+document.getElementById("score").textContent=score
+
+confetti()
+
+level++
+
+newLevel()
+
+}else{
+
+document.getElementById("result").textContent="Yanlış tekrar dene"
+
+}
+
+}
+
+newLevel()
+
+setInterval(()=>{
+
+time--
+
+document.getElementById("time").textContent=time
+
+if(time<=0){
+
+alert("Süre bitti!")
+
+if(score>high){
+
+localStorage.setItem("highscore",score)
+
+}
+
+location.reload()
+
+}
+
+},1000)
+
+function sparkle(){
+
+let s=document.createElement("div")
+
+s.className="sparkle"
+
+s.style.left=Math.random()*window.innerWidth+"px"
+
+s.style.animationDuration=(Math.random()*3+2)+"s"
+
+document.body.appendChild(s)
+
+setTimeout(()=>s.remove(),5000)
+
+}
+
+setInterval(sparkle,120)
+
+function confetti(){
+
+for(let i=0;i<20;i++){
+
+let c=document.createElement("div")
+
+c.className="confetti"
+
+c.style.left=Math.random()*window.innerWidth+"px"
+
+c.style.top=Math.random()*window.innerHeight+"px"
+
+document.body.appendChild(c)
+
+setTimeout(()=>c.remove(),1000)
+
+}
+
+}
+
+</script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+
+<div class="sparkle" style="left: 239.005px; animation-duration: 3.46564s;"></div><div class="sparkle" style="left: 1427.77px; animation-duration: 2.71634s;"></div><div class="sparkle" style="left: 269.856px; animation-duration: 3.46136s;"></div><div class="sparkle" style="left: 1528.27px; animation-duration: 4.69734s;"></div><div class="sparkle" style="left: 1062.54px; animation-duration: 2.83447s;"></div><div class="sparkle" style="left: 1222.2px; animation-duration: 4.61341s;"></div><div class="sparkle" style="left: 867.251px; animation-duration: 2.2524s;"></div></body></html>

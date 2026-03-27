@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 1</title>
+    <style>
+        #btnGalatasaray {
+            background-color: red;
+            color: yellow;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #btnBesiktas {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #btnFenerbahce {
+            background-color: yellow;
+            color: blue;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#btnGalatasaray").click(function () {
+                alert("Alemin kralı, 5 yıldızlı Galatasaray");
+            });
+
+            $("#btnBesiktas").click(function () {
+                alert("Delikanlı adam renkli takım tutmaz ! Beşiktaşlıdır");
+            });
+
+            $("#btnFenerbahce").click(function () {
+                alert("Yer sarı gök mavi yaşasın Fenerbahçe");
+            });
+
+            $("#btnKapat").click(function () {
+                //$("#divMesaj").hide(1500);
+                //$("#divMesaj").fadeOut(1500);
+                $("#divMesaj").slideUp(1500);
+            });
+
+            $("#btnAc").click(function () {
+                //$("#divMesaj").show(1500);
+                //$("#divMesaj").fadeIn(4500);
+                $("#divMesaj").slideDown(4500);
+            });
+
+            $("#btnAnimasyon").click(function () {
+                $("#divMesaj").animate({
+                    width: "500px",
+                    height: "200px",
+                    fontSize: "13px",
+                }, 500);
+            });
+
+            
+
+
+        });
+    </script>
+</head>
+
+<body>
+    Selam ben JQuery
+    <hr>
+    <button id="btnGalatasaray">Galatasaray</button>
+    <button id="btnBesiktas">Beşiktaş</button>
+    <button id="btnFenerbahce">Fenerbahçe</button>
+    <hr>
+    <button id="btnKapat">Kapat</button>
+    <button id="btnAc">Aç</button>
+    <button id="btnAnimasyon">Animasyon</button>
+
+    <br><br>
+    <div id="divMesaj"
+        style="width: 300px; border:1px dotted black; background-color: lightsalmon; padding: 10px;line-height: 20px;">
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto, inventore non quisquam nesciunt
+            reprehenderit repellat culpa, dolor nisi sint totam mollitia quis reiciendis ullam dignissimos tenetur id ut
+            laudantium nobis!
+            Earum, voluptate provident? Illo dolore, at saepe quidem blanditiis voluptas? Minima eligendi a, accusamus
+            eius perferendis quis ipsam impedit eum exercitationem ab quisquam aliquam veritatis esse animi error
+            tempora recusandae.
+            Ducimus eum ipsum enim cumque sapiente quos sequi, magni dolorum, debitis et tenetur esse repellendus modi
+            inventore nulla cum velit laborum blanditiis incidunt ab accusantium quis ipsam culpa? Minus, iusto.
+        </p>
+    </div>
+</body>
+
+</html>

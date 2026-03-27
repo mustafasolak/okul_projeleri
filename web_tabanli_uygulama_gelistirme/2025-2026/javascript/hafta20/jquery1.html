@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery - 1</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            var eskiMetin = $("#isimler").text();
+            $("#isimler").text( eskiMetin + " Veli" );
+            $("#gizli").show(3000);
+            $("#gizli").hide(5000);
+            $("#gizli").fadeIn(5000);
+            $("#gizli").fadeOut(5000);
+            $("#gizli").slideDown(1000);
+            $("#gizli").slideUp(1000);
+            $("#gizli").show(3000);
+            $("#gizli").animate({left:'350px',width:'150px'}, 1000);
+        });
+    </script>
+</head>
+<body>
+    <h3>JQuery - 1</h3>
+    <p>
+        JQuery kullanarak, HTML dökümanları üzerinde gezinmek, olayları işlemek, animasyonlar oluşturmak ve Ajax ile etkileşimde bulunmak gibi birçok işlemi kolayca yapabilirsiniz. JQuery, JavaScript'in gücünü basitleştirerek, web geliştirme sürecini hızlandırır ve daha az kod yazmanızı sağlar. JQuery'nin temel özellikleri arasında DOM manipülasyonu, olay yönetimi, efektler ve Ajax desteği bulunur. JQuery'yi kullanarak, web sayfalarınızı daha dinamik ve kullanıcı dostu hale getirebilirsiniz.
+    </p>
+    <div id="isimler">
+        Ali
+    </div>
+    <p id="gizli" style="width: 300px; border: 1px black dotted; padding: 10px; display: none;">
+        Bu metin gizlidir. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam ipsam fugit voluptates nisi consequatur. Numquam cupiditate vitae eos sed, tenetur ipsam dicta iste quaerat odit fugiat quidem enim voluptatum impedit.
+    </p>
+</body>
+</html>

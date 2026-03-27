@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamanlayıcılar - 1</title>
+    <style>
+        #mesajPenceresi {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Zamanlayıcılar - 1 Konusu</h3>
+    <p>
+        Burada Zamanlayıcılar ile ilgili örnek vardır.
+    </p>
+
+    <div id="mesajPenceresi">
+        <div id="baslik">
+            <h3>Bilgilendirme</h3>
+        </div>
+        <div id="mesajIcerik">
+            <p>
+                Bu örnek, JavaScript zamanlayıcılarını kullanarak belirli bir süre sonra mesaj gösteren basit bir
+                uygulamadır.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById('mesajPenceresi').style.display = 'none';
+        }, 5000);
+
+        setTimeout(() => {
+            location.reload(); // sayfa yniden yüklenecek
+        }, 7000);
+    </script>
+
+</body>
+
+</html>

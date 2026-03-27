@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Kelime Oyunu</title>
+
+<style>
+
+body{
+background:linear-gradient(135deg,#ffd6e7,#ffeef6);
+font-family:Segoe UI;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.kart{
+
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+width:420px;
+text-align:center;
+
+}
+
+h1{
+color:#d63384;
+margin-bottom:10px;
+}
+
+#can{
+font-size:22px;
+margin-bottom:10px;
+}
+
+#skor{
+color:#777;
+margin-bottom:15px;
+}
+
+#kelime{
+font-size:42px;
+letter-spacing:12px;
+margin:25px 0;
+}
+
+#harfler{
+
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:10px;
+
+}
+
+.harf{
+
+padding:12px;
+border:none;
+border-radius:12px;
+background:#ff8fb1;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.2s;
+
+}
+
+.harf:hover{
+transform:scale(1.1);
+}
+
+.dogru{
+background:#4CAF50 !important;
+}
+
+.yanlis{
+background:#ff4d4d !important;
+}
+
+#yenioyun{
+
+margin-top:20px;
+padding:10px 20px;
+border:none;
+background:#d63384;
+color:white;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="kart">
+
+<h1>🌸 Kelime Oyunu</h1>
+
+<div id="can"></div>
+
+<div id="skor">Skor: 0</div>
+
+<div id="kelime"></div>
+
+<div id="harfler"></div>
+
+<button id="yenioyun" onclick="yeniOyun()">Yeni Oyun</button>
+
+</div>
+
+<script>
+
+let kelimeler=[
+"ELMA","ARABA","KEDI","CICEK","BILGISAYAR",
+"TELEFON","KITAP","OYUN","YAZILIM","INTERNET"
+];
+
+let aktifKelime="";
+let gorunen=[];
+let can=5;
+let skor=0;
+
+function yeniOyun(){
+
+aktifKelime=kelimeler[Math.floor(Math.random()*kelimeler.length)];
+
+gorunen=[];
+can=5;
+
+for(let i=0;i<aktifKelime.length;i++)
+gorunen.push("_");
+
+harfleriOlustur();
+yaz();
+
+}
+
+function yaz(){
+
+document.getElementById("kelime").innerHTML=gorunen.join(" ");
+
+document.getElementById("can").innerHTML="❤️".repeat(can);
+
+document.getElementById("skor").innerHTML="Skor: "+skor;
+
+}
+
+function harfleriOlustur(){
+
+let div=document.getElementById("harfler");
+div.innerHTML="";
+
+for(let i=65;i<=90;i++){
+
+let harf=String.fromCharCode(i);
+
+let btn=document.createElement("button");
+btn.innerHTML=harf;
+btn.className="harf";
+
+btn.onclick=function(){
+
+let dogru=false;
+
+for(let j=0;j<aktifKelime.length;j++){
+
+if(aktifKelime[j]==harf){
+
+gorunen[j]=harf;
+dogru=true;
+
+}
+
+}
+
+if(dogru){
+
+btn.classList.add("dogru");
+
+}else{
+
+btn.classList.add("yanlis");
+can--;
+
+}
+
+btn.disabled=true;
+
+yaz();
+
+if(!gorunen.includes("_")){
+
+skor+=10;
+
+setTimeout(()=>{
+alert("🎉 Kazandın!");
+yeniOyun();
+},200);
+
+}
+
+if(can==0){
+
+setTimeout(()=>{
+alert("😢 Kaybettin! Kelime: "+aktifKelime);
+yeniOyun();
+},200);
+
+}
+
+}
+
+div.appendChild(btn);
+
+}
+
+}
+
+yeniOyun();
+
+</script>
+
+</body>
+</html>

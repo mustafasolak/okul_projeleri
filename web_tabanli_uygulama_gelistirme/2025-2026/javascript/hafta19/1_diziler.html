@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diziler</title>
+</head>
+<body>
+    Diziler Örnek Çalışması
+    <br>
+    <div id="divIsimler">
+
+    </div>
+
+    <script>
+        var isimler = ["Ali", "Veli", "Ahmet", "Cafer", "Kamil", "Nuri", "Haydar", "Nuriye", "Cevriye", "Hüsniye", "Hamdiye"];
+        console.log("İsimler :", isimler);
+        document.getElementById("divIsimler").innerHTML = "<b>" + isimler[2] + "</b>"   ;
+        isimler[3] = "Nurettin";
+        document.getElementById("divIsimler").innerHTML += "<br>" + isimler;
+        // dizilere yeni eleman ekleme
+        isimler.push("Cabbar");
+        isimler.push("Appas");
+        document.getElementById("divIsimler").innerHTML += "<br>" + isimler;
+
+        //dizinin eleman sayısını öğrenme
+        document.getElementById("divIsimler").innerHTML += "<br> Eleman Sayısı : " + isimler.length;    
+
+        //dizinin elemanalrını sıralama - küçükten büyüğe sıralama
+        isimler.sort();
+        document.getElementById("divIsimler").innerHTML += "<br>" + isimler;
+        
+        // dizinin elemanlarını ters çevirme - büyükten küçüğe sıralama
+        isimler.reverse();
+        document.getElementById("divIsimler").innerHTML += "<br>" + isimler;
+
+        isimler.pop(); // dizinin son elemanını siler
+        document.getElementById("divIsimler").innerHTML += "<br>" + isimler;
+
+        // dizinin tüm elemanlarını ekrana yazdırma
+        for(let i=0; i<isimler.length; i++){
+            document.getElementById("divIsimler").innerHTML += "<br>" + isimler[i];
+        }
+
+        // dizilerde arama yapma
+        var arananIsim = "Kerim";
+        var sonuc = isimler.indexOf(arananIsim);
+        if(sonuc == -1){
+            document.getElementById("divIsimler").innerHTML += "<br>" + arananIsim + " isimli kişi dizide bulunmamaktadır.";
+        }
+        else{
+            document.getElementById("divIsimler").innerHTML += "<br>" + arananIsim + " isimli kişi dizinin " + sonuc + ". elemanıdır.";
+        }
+      
+
+    </script>
+</body>
+</html>
